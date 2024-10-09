@@ -1,0 +1,61 @@
+body {
+  margin: 0px;
+  background-color: #f6f8ff;
+  font-family: "Space Mono", monospace;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0px;
+}
+
+ul {
+  padding: 0px;
+  list-style: none;
+}
+
+.container {
+  max-width: 45.625rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.25rem;
+}
+
+.logo .logo__title {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #222731;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle .theme-toggle__text {
+  font-size: 0.813rem;
+  font-weight: 700;
+  letter-spacing: 0.156rem;
+  text-transform: uppercase;
+  color: #222731;
+}

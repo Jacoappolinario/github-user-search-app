@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <title>Frontend Mentor | GitHub user search app</title>
+  <link rel="stylesheet" href="./css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <h1 class="logo__title">DevFinder</h1>
+      </div>
+      <div class="theme-toggle">
+        <p class="theme-toggle__text">Dark</p>
+        <img class="theme-toggle__icon" src="./assets/icon-moon.svg" alt="Icon moon">
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="search-section">
+        <form class="search-form">
+          <div class="search-form__input-wrapper">
+            <img class="search-form__icon" src="./assets/icon-search.svg" alt="Search icon">
+            <input class="search-input" type="search" name="github-username" id="github-username" placeholder="Search Github username..." aria-label="Search Github username">
+            <button class="search-button__button">Search</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="user-profile">
+        <div class="user-profile__avatar">
+          <img class="avatar-img" src="./assets/avatar-img.jpg" alt="User avatar">
+        </div>
+        <div class="user-profile__content">
+          <div class="user-profile__header">
+            <div class="user-info">
+              <h2 class="user-info__name">The Octocat</h2>
+              <p class="user-info__username">@octocat</p>
+            </div>
+            <time class="user-info__join-date" datetime="2011-01-25">Joined 25 Jan 2011</time>
+          </div>
+
+          <div class="user-profile__bio">
+            <p class="bio-text">This profile has no bio</p>
+          </div>
+
+          <div class="user-profile__stats">
+            <div class="stat-item">
+              <h3 class="stat-item__title">Repos</h2>
+                <p class="stat-item__value">8</p>
+            </div>
+            <div class="stat-item">
+              <h3 class="stat-item__title">Followers</h2>
+                <p class="stat-item__value">3938</p>
+            </div>
+            <div class="stat-item">
+              <h3 class="stat-item__title">Following</h2>
+                <p class="stat-item__value">9</p>
+            </div>
+          </div>
+
+          <footer class="user-progile__footer">
+            <ul class="contact-list">
+              <li class="contact-item"><img class="contact-icon" src="./assets/icon-location.svg" alt="Location icon">San Francisco</li>
+              <li class="contact-item"><img class="contact-icon" src="./assets/icon-twitter.svg" alt="Twitter icon">Not Available</li>
+              <li class="contact-item"><img class="contact-icon" src="./assets/icon-website.svg" alt="Website icon">https://github.blog</li>
+              <li class="contact-item"><img class="contact-icon" src="./assets/icon-company.svg" alt="Company icon">@github</li>
+            </ul>
+          </footer>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>
