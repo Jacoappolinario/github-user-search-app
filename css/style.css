@@ -4,7 +4,6 @@ body {
   font-family: "Space Mono", monospace;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -27,20 +26,26 @@ ul {
   list-style: none;
 }
 
+/* General */
+
 .container {
   max-width: 45.625rem;
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
 }
+
+/* Header */
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2.25rem;
 }
 
-.logo .logo__title {
+.logo__title {
   font-size: 1.625rem;
   font-weight: 700;
   color: #222731;
@@ -50,13 +55,87 @@ ul {
   display: flex;
   align-items: center;
   gap: 1rem;
+  background: none;
+  border: none;
+  padding: 0.313rem 0.625rem;
   cursor: pointer;
 }
 
-.theme-toggle .theme-toggle__text {
+.theme-toggle__text {
   font-size: 0.813rem;
   font-weight: 700;
   letter-spacing: 0.156rem;
   text-transform: uppercase;
+  color: #697c9a;
+}
+
+.theme-toggle:active .theme-toggle__text,
+.theme-toggle:hover .theme-toggle__text,
+.theme-toggle:active .theme-toggle__icon path,
+.theme-toggle:hover .theme-toggle__icon path {
   color: #222731;
+  fill: #222731;
+}
+
+/* Content */
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.search-form__input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #fefefe;
+  border-radius: 15px;
+  padding: 0.594rem 0.625rem;
+  box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.1986);
+  gap: 1.5rem;
+}
+
+.search-form__icon {
+  width: 24.06px;
+  height: 24px;
+  margin-left: 2rem;
+}
+
+.search-input {
+  font-size: 1.125rem;
+  line-height: 1.38;
+  color: #4b6a9b;
+  outline: none;
+  border: none;
+  flex-grow: 1;
+}
+
+.search-input::placeholder {
+  color: #4b6a9b;
+}
+
+.search-form__no-results {
+  display: none;
+  font-size: 0.938rem;
+  font-weight: 700;
+  color: #f74646;
+}
+
+.search-form__no-results.active {
+  display: block;
+}
+
+.search-form__button {
+  background-color: #0079ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.844rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.search-form__button:hover {
+  background-color: #60abff;
 }
