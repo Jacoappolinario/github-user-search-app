@@ -26,6 +26,11 @@ ul {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* General */
 
 .container {
@@ -236,4 +241,8 @@ ul {
   font-size: 0.938rem;
   font-weight: 400;
   color: #4b6a9b;
+}
+
+.contact-list li a:active {
+  text-decoration: underline;
 }
