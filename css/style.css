@@ -31,7 +31,6 @@ ul {
 .container {
   max-width: 45.625rem;
   width: 100%;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 2.25rem;
@@ -90,7 +89,7 @@ ul {
   align-items: center;
   background-color: #fefefe;
   border-radius: 15px;
-  padding: 0.594rem 0.625rem;
+  padding: 0.594rem 0.625rem 0.594rem 2rem;
   box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.1986);
   gap: 1.5rem;
 }
@@ -98,7 +97,6 @@ ul {
 .search-form__icon {
   width: 24.06px;
   height: 24px;
-  margin-left: 2rem;
 }
 
 .search-input {
@@ -138,4 +136,104 @@ ul {
 
 .search-form__button:hover {
   background-color: #60abff;
+}
+
+.user-profile {
+  display: flex;
+  gap: 2.313rem;
+  background-color: #fefefe;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.1986);
+}
+
+.user-profile__avatar img {
+  width: 117px;
+  height: 117px;
+  border-radius: 50%;
+}
+
+.user-profile__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-profile__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.user-info__name {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #2b3442;
+}
+
+.user-info__username {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #0079ff;
+}
+
+.user-info__join-date {
+  font-size: 0.938rem;
+  font-weight: 400;
+  color: #697c9a;
+}
+
+.user-profile__bio {
+  margin-bottom: 2rem;
+}
+
+.user-profile__bio p {
+  font-size: 0.938rem;
+  font-weight: 400;
+  line-height: 1.66;
+  color: #4b6a9b;
+}
+
+.user-profile__stats {
+  display: flex;
+  background-color: #f6f8ff;
+  border-radius: 10px;
+  padding: 0.938rem 2rem 1.063rem 2rem;
+  margin-bottom: 2.438rem;
+}
+
+.stat-item:nth-child(1) {
+  margin-right: 6.188rem;
+}
+
+.stat-item:nth-child(2) {
+  margin-right: 5.125rem;
+}
+
+.stat-item__title {
+  font-size: 0.813rem;
+  font-weight: 400;
+  color: #4b6a9b;
+}
+
+.stat-item__value {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #2b3442;
+}
+
+.contact-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.188rem 3.875rem;
+}
+
+.contact-list li {
+  display: flex;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.938rem;
+  font-weight: 400;
+  color: #4b6a9b;
 }
