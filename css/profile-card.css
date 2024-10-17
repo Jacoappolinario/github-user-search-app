@@ -1,3 +1,5 @@
+/* TODO: Ajustar o alinhamento vertical do elemento "profile-card__join-date" para que fique perfeitamente alinhado com o "profile-card__name" */
+
 .profile-card {
   display: flex;
   gap: 2.313rem;
