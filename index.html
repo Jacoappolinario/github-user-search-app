@@ -16,72 +16,86 @@
 <body>
   <div class="container">
     <header class="header">
-      <div class="logo">
-        <h1 class="logo__title">devfinder</h1>
+      <div class="header__brand">
+        <h1 class="header__title">devfinder</h1>
       </div>
-      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
-        <span class="theme-toggle__text">Dark</span>
-        <svg class="theme-toggle__icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+      <button class="header__theme-toggle" type="button" aria-label="Toggle dark mode">
+        <span class="header__theme-text">Dark</span>
+        <svg class="header__theme-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M19.513 11.397a.701.701 0 00-.588.128 7.496 7.496 0 01-2.276 1.336 7.101 7.101 0 01-2.583.462 7.505 7.505 0 01-5.32-2.209 7.568 7.568 0 01-2.199-5.342c0-.873.154-1.72.41-2.49a6.904 6.904 0 011.227-2.21.657.657 0 00-.102-.924.701.701 0 00-.589-.128C5.32.61 3.427 1.92 2.072 3.666A10.158 10.158 0 000 9.83c0 2.8 1.125 5.342 2.967 7.19a10.025 10.025 0 007.16 2.98c2.353 0 4.527-.822 6.266-2.183a10.13 10.13 0 003.58-5.624.623.623 0 00-.46-.796z" fill="#697C9A" fill-rule="nonzero" />
         </svg>
       </button>
     </header>
 
-    <main class="main-content">
-      <section class="search-section">
-        <form class="search-form">
-          <div class="search-form__input-wrapper">
-            <img class="search-form__icon" src="./assets/icon-search.svg" alt="Search icon">
-            <input class="search-input" type="search" name="github-username" id="github-username" placeholder="Search Github username..." aria-label="Search Github username">
-            <span class="search-form__no-results">No results</span>
-            <button class="search-form__button">Search</button>
-          </div>
-        </form>
-      </section>
 
-      <section class="user-profile">
-        <div class="user-profile__avatar">
-          <img class="avatar-img" src="./assets/avatar-img.jpg" alt="User avatar">
+    <section class="search">
+      <form class="search__form">
+        <div class="search__content">
+          <img class="search__icon" src="./assets/icon-search.svg" alt="Search icon" aria-hidden="true">
+          <input class="search__input" type="search" name="github-username" id="github-username" placeholder="Search Github username..." aria-label="Search Github username">
+          <span class="search__error" aria-live="polite">No results</span>
+          <button class="search__submit" type="submit" aria-label="Search for GitHub user">
+            Search
+          </button>
         </div>
-        <div class="user-profile__content">
-          <div class="user-profile__header">
-            <div class="user-info">
-              <h2 class="user-info__name">The Octocat</h2>
-              <p class="user-info__username">@octocat</p>
-            </div>
-            <time class="user-info__join-date" datetime="2011-01-25">Joined 25 Jan 2011</time>
-          </div>
+      </form>
+    </section>
 
-          <div class="user-profile__bio">
-            <p class="bio-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</p>
-          </div>
+    <section class="profile-card">
+      <div class="profile-card__avatar">
+        <img class="profile-card__avatar-img" src="./assets/avatar-img.jpg" alt="User avatar">
+      </div>
 
-          <div class="user-profile__stats">
-            <div class="stat-item">
-              <h3 class="stat-item__title">Repos</h2>
-                <p class="stat-item__value">8</p>
-            </div>
-            <div class="stat-item">
-              <h3 class="stat-item__title">Followers</h2>
-                <p class="stat-item__value">3938</p>
-            </div>
-            <div class="stat-item">
-              <h3 class="stat-item__title">Following</h2>
-                <p class="stat-item__value">9</p>
-            </div>
+      <div class="profile-card__details">
+        <div class="profile-card__header">
+          <div class="profile-card__identity">
+            <h2 class="profile-card__name">The Octocat</h2>
+            <p class="profile-card__username">@octocat</p>
           </div>
-
-          <footer class="user-progile__footer">
-            <ul class="contact-list">
-              <li class="contact-item"><img class="contact-icon" src="./assets/icon-location.svg" alt="Location icon">San Francisco</li>
-              <li class="contact-item"><img class="contact-icon" src="./assets/icon-twitter.svg" alt="Twitter icon"><a href="">Not Available</a></li>
-              <li class="contact-item"><img class="contact-icon" src="./assets/icon-website.svg" alt="Website icon"><a href="https://github.blog">https://github.blog</a></li>
-              <li class="contact-item"><img class="contact-icon" src="./assets/icon-company.svg" alt="Company icon">@github</li>
-            </ul>
-          </footer>
+          <time class="profile-card__join-date" datetime="2011-01-25">Joined 25 Jan 2011</time>
         </div>
-      </section>
-    </main>
+
+        <div class="profile-card__bio">
+          <p class="profile-card__bio-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</p>
+        </div>
+
+        <div class="profile-card__metrics">
+          <div class="profile-card__metric-item">
+            <h3 class="profile-card__metric-title">Repos</h3>
+            <p class="profile-card__metric-value">8</p>
+          </div>
+          <div class="profile-card__metric-item">
+            <h3 class="profile-card__metric-title">Followers</h3>
+            <p class="profile-card__metric-value">3938</p>
+          </div>
+          <div class="profile-card__metric-item">
+            <h3 class="profile-card__metric-title">Following</h3>
+            <p class="profile-card__metric-value">9</p>
+          </div>
+        </div>
+
+        <footer class="profile-card__contact">
+          <ul class="profile-card__contact-list">
+            <li class="profile-card__contact-item">
+              <img class="profile-card__contact-icon" src="./assets/icon-location.svg" alt="Location icon">
+              <span class="profile-card__contact-text">San Francisco</span>
+            </li>
+            <li class="profile-card__contact-item">
+              <img class="profile-card__contact-icon" src="./assets/icon-twitter.svg" alt="Twitter icon">
+              <a class="profile-card__contact-link profile-card__contact-link--disabled">Not Available</a>
+            </li>
+            <li class="profile-card__contact-item">
+              <img class="profile-card__contact-icon" src="./assets/icon-website.svg" alt="Website icon">
+              <a class="profile-card__contact-link" href="https://github.blog">https://github.blog</a>
+            </li>
+            <li class="profile-card__contact-item">
+              <img class="profile-card__contact-icon" src="./assets/icon-company.svg" alt="Company icon">
+              <span class="profile-card__contact-text">@github</span>
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </section>
   </div>
 </body>
 

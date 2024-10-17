@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.25rem;
+}
+
+.header__title {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #222731;
+}
+
+.header__theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: none;
+  border: none;
+  padding: 0.313rem 0.625rem;
+  cursor: pointer;
+}
+
+.header__theme-text {
+  font-size: 0.813rem;
+  font-weight: 700;
+  letter-spacing: 0.156rem;
+  text-transform: uppercase;
+  color: #697c9a;
+  transition: color 0.2s ease;
+}
+
+.header__theme-icon path {
+  transition: fill 0.2s ease;
+}
+
+.header__theme-toggle:active .header__theme-text,
+.header__theme-toggle:hover .header__theme-text {
+  color: #222731;
+}
+
+.header__theme-toggle:active .header__theme-icon path,
+.header__theme-toggle:hover .header__theme-icon path {
+  fill: #222731;
+}
