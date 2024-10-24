@@ -26,7 +26,6 @@
 .profile-card__header {
   display: flex;
   justify-content: space-between;
-  flex: 1;
 }
 
 .profile-card__name {
@@ -117,4 +116,115 @@
 
 .profile-card__contact-link:active {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 2.5rem;
+  }
+
+  .profile-card__header-container {
+    grid-template-columns: auto 1fr;
+    gap: 2.563rem;
+    height: initial;
+  }
+
+  .profile-card__header {
+    flex-direction: column;
+    justify-content: initial;
+  }
+
+  .profile-card__join-date {
+    margin-top: 0.25rem;
+  }
+
+  .profile-card__content {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card__bio {
+    margin-top: 1.5rem;
+    grid-column: initial;
+  }
+
+  .profile-card__metrics {
+    margin-bottom: 1.875rem;
+    grid-column: initial;
+  }
+
+  .profile-card__contact {
+    grid-column: initial;
+  }
+}
+
+@media (max-width: 375px) {
+  .profile-card {
+    padding: 2rem 1.5rem 3rem 1.5rem;
+  }
+
+  .profile-card__avatar-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .profile-card__name {
+    font-size: 1rem;
+  }
+
+  .profile-card__username {
+    font-size: 0.813rem;
+  }
+
+  .profile-card__join-date {
+    font-size: 0.813rem;
+    margin-top: 0.375rem;
+  }
+
+  .profile-card__content {
+    justify-items: center;
+  }
+
+  .profile-card__bio {
+    margin-top: 2.063rem;
+    margin-bottom: 1.438rem;
+  }
+
+  .profile-card__bio-text {
+    font-size: 0.813rem;
+    line-height: 1.92;
+    max-width: 35ch;
+  }
+
+  .profile-card__metrics {
+    max-width: 279px;
+    padding: 1.125rem 2.375rem;
+    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .profile-card__metric-item:nth-child(1) {
+    margin-right: 2.188rem;
+  }
+
+  .profile-card__metric-item:nth-child(2) {
+    margin-right: 1.625rem;
+  }
+
+  .profile-card__metric-title {
+    font-size: 0.688rem;
+  }
+
+  .profile-card__metric-value {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .profile-card__contact {
+    justify-self: start;
+  }
+
+  .profile-card__contact-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
