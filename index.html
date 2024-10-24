@@ -28,7 +28,6 @@
       </button>
     </header>
 
-
     <section class="search">
       <form class="search__form">
         <div class="search__content">
@@ -43,59 +42,63 @@
     </section>
 
     <section class="profile-card">
-      <div class="profile-card__avatar">
-        <img class="profile-card__avatar-img" src="./assets/avatar-img.jpg" alt="User avatar">
-      </div>
+
 
       <div class="profile-card__details">
-        <div class="profile-card__header">
-          <div class="profile-card__identity">
-            <!-- TODO: Ajustar o alinhamento vertical do elemento "profile-card__join-date" para que fique perfeitamente alinhado com o "profile-card__name" -->
-            <h2 class="profile-card__name">The Octocat</h2>
-            <p class="profile-card__username">@octocat</p>
+        <div class="profile-card__header-container">
+          <div class="profile-card__avatar">
+            <img class="profile-card__avatar-img" src="./assets/avatar-img.jpg" alt="User avatar">
           </div>
-          <time class="profile-card__join-date" datetime="2011-01-25">Joined 25 Jan 2011</time>
-        </div>
-
-        <div class="profile-card__bio">
-          <p class="profile-card__bio-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</p>
-        </div>
-
-        <div class="profile-card__metrics">
-          <div class="profile-card__metric-item">
-            <h3 class="profile-card__metric-title">Repos</h3>
-            <p class="profile-card__metric-value">8</p>
-          </div>
-          <div class="profile-card__metric-item">
-            <h3 class="profile-card__metric-title">Followers</h3>
-            <p class="profile-card__metric-value">3938</p>
-          </div>
-          <div class="profile-card__metric-item">
-            <h3 class="profile-card__metric-title">Following</h3>
-            <p class="profile-card__metric-value">9</p>
+          <div class="profile-card__header">
+            <div class="profile-card__identity">
+              <h2 class="profile-card__name">The Octocat</h2>
+              <p class="profile-card__username">@octocat</p>
+            </div>
+            <time class="profile-card__join-date" datetime="2011-01-25">Joined 25 Jan 2011</time>
           </div>
         </div>
 
-        <footer class="profile-card__contact">
-          <ul class="profile-card__contact-list">
-            <li class="profile-card__contact-item">
-              <img class="profile-card__contact-icon" src="./assets/icon-location.svg" alt="Location icon">
-              <span class="profile-card__contact-text">San Francisco</span>
-            </li>
-            <li class="profile-card__contact-item">
-              <img class="profile-card__contact-icon" src="./assets/icon-twitter.svg" alt="Twitter icon">
-              <a class="profile-card__contact-link profile-card__contact-link--disabled">Not Available</a>
-            </li>
-            <li class="profile-card__contact-item">
-              <img class="profile-card__contact-icon" src="./assets/icon-website.svg" alt="Website icon">
-              <a class="profile-card__contact-link" href="https://github.blog">https://github.blog</a>
-            </li>
-            <li class="profile-card__contact-item">
-              <img class="profile-card__contact-icon" src="./assets/icon-company.svg" alt="Company icon">
-              <span class="profile-card__contact-text">@github</span>
-            </li>
-          </ul>
-        </footer>
+        <div class="profile-card__content">
+          <div class="profile-card__bio">
+            <p class="profile-card__bio-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</p>
+          </div>
+
+          <div class="profile-card__metrics">
+            <div class="profile-card__metric-item">
+              <h3 class="profile-card__metric-title">Repos</h3>
+              <p class="profile-card__metric-value">8</p>
+            </div>
+            <div class="profile-card__metric-item">
+              <h3 class="profile-card__metric-title">Followers</h3>
+              <p class="profile-card__metric-value">3938</p>
+            </div>
+            <div class="profile-card__metric-item">
+              <h3 class="profile-card__metric-title">Following</h3>
+              <p class="profile-card__metric-value">9</p>
+            </div>
+          </div>
+
+          <footer class="profile-card__contact">
+            <ul class="profile-card__contact-list">
+              <li class="profile-card__contact-item">
+                <img class="profile-card__contact-icon" src="./assets/icon-location.svg" alt="Location icon">
+                <span class="profile-card__contact-text">San Francisco</span>
+              </li>
+              <li class="profile-card__contact-item">
+                <img class="profile-card__contact-icon" src="./assets/icon-twitter.svg" alt="Twitter icon">
+                <a class="profile-card__contact-link profile-card__contact-link--disabled">Not Available</a>
+              </li>
+              <li class="profile-card__contact-item">
+                <img class="profile-card__contact-icon" src="./assets/icon-website.svg" alt="Website icon">
+                <a class="profile-card__contact-link" href="https://github.blog">https://github.blog</a>
+              </li>
+              <li class="profile-card__contact-item">
+                <img class="profile-card__contact-icon" src="./assets/icon-company.svg" alt="Company icon">
+                <span class="profile-card__contact-text">@github</span>
+              </li>
+            </ul>
+          </footer>
+        </div>
       </div>
     </section>
   </div>

@@ -1,12 +1,20 @@
-/* TODO: Ajustar o alinhamento vertical do elemento "profile-card__join-date" para que fique perfeitamente alinhado com o "profile-card__name" */
-
 .profile-card {
-  display: flex;
-  gap: 2.313rem;
   background-color: #fefefe;
   padding: 3rem;
   border-radius: 15px;
   box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.1986);
+  box-sizing: border-box;
+}
+
+.profile-card__details {
+  display: grid;
+}
+
+.profile-card__header-container {
+  display: grid;
+  grid-template-columns: auto 480px;
+  gap: 2.313rem;
+  height: 60px;
 }
 
 .profile-card__avatar-img {
@@ -15,16 +23,10 @@
   border-radius: 50%;
 }
 
-.profile-card__details {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
 .profile-card__header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.25rem;
+  flex: 1;
 }
 
 .profile-card__name {
@@ -43,10 +45,18 @@
   font-size: 0.938rem;
   font-weight: 400;
   color: #697c9a;
+  margin-top: 0.5rem;
+}
+
+.profile-card__content {
+  display: grid;
+  grid-template-columns: 154px 480px;
 }
 
 .profile-card__bio {
+  margin-top: 1.625rem;
   margin-bottom: 2rem;
+  grid-column: 2;
 }
 
 .profile-card__bio-text {
@@ -62,6 +72,7 @@
   border-radius: 10px;
   padding: 0.938rem 2rem 1.063rem 2rem;
   margin-bottom: 2.438rem;
+  grid-column: 2;
 }
 
 .profile-card__metric-item:nth-child(1) {
@@ -82,6 +93,10 @@
   font-size: 1.375rem;
   font-weight: 700;
   color: #2b3442;
+}
+
+.profile-card__contact {
+  grid-column: 2;
 }
 
 .profile-card__contact-list {
