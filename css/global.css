@@ -37,3 +37,16 @@ a {
   display: flex;
   flex-direction: column;
 }
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 35.813rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    max-width: 20.438rem;
+    padding: 1.938rem 1.5rem 4.938rem 1.5rem;
+  }
+}
