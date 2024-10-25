@@ -161,6 +161,15 @@
   color: #ffffff;
 }
 
+.dark .profile-card__item--not-available {
+  color: rgb(143, 150, 163);
+}
+
+.dark .profile-card__item--not-available path,
+.dark .profile-card__item--not-available g {
+  fill: rgb(143, 150, 163);
+}
+
 /* Tablet */
 @media (max-width: 768px) {
   .profile-card {
