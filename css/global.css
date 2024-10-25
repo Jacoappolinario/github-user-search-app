@@ -39,7 +39,7 @@ a {
 }
 
 /* Dark Mode */
-.dark {
+body.dark {
   background-color: #141d2f;
 }
 
