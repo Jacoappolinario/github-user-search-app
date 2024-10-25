@@ -1,5 +1,3 @@
-/* TODO: Implementar o CSS do "Not Available */
-
 .profile-card {
   background-color: #fefefe;
   padding: 3rem;
@@ -118,6 +116,15 @@
 
 .profile-card__contact-link:active {
   text-decoration: underline;
+}
+
+.profile-card__item--not-available {
+  color: rgb(164, 180, 204);
+}
+
+.profile-card__item--not-available path,
+.profile-card__item--not-available g {
+  fill: rgb(164, 180, 204);
 }
 
 /* Dark Mode */
