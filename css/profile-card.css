@@ -120,6 +120,41 @@
   text-decoration: underline;
 }
 
+/* Dark Mode */
+.dark .profile-card {
+  background-color: #1e2a47;
+  box-shadow: initial;
+}
+
+.dark .profile-card__name {
+  color: #ffffff;
+}
+
+.dark .profile-card__join-date {
+  color: #ffffff;
+}
+
+.dark .profile-card__bio-text {
+  color: #ffffff;
+}
+
+.dark .profile-card__metrics {
+  background-color: #141d2f;
+}
+
+.dark .profile-card__metric-title {
+  color: #ffffff;
+}
+
+.dark .profile-card__metric-value {
+  color: #ffffff;
+}
+
+.dark .profile-card__contact-item {
+  color: #ffffff;
+}
+
+/* Tablet */
 @media (max-width: 768px) {
   .profile-card {
     padding: 2.5rem;
@@ -159,6 +194,7 @@
   }
 }
 
+/* Mobile */
 @media (max-width: 375px) {
   .profile-card {
     padding: 2rem 1.5rem 3rem 1.5rem;

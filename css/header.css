@@ -43,3 +43,26 @@
 .header__theme-toggle:hover .header__theme-icon path {
   fill: #222731;
 }
+
+/* Dark Mode */
+.dark .header__title {
+  color: #ffffff;
+}
+
+.dark .header__theme-text {
+  color: #ffffff;
+}
+
+.dark .header__theme-icon path {
+  fill: #ffffff;
+}
+
+.dark .header__theme-toggle:active .header__theme-text,
+.header__theme-toggle:hover .header__theme-text {
+  color: #90a4d4;
+}
+
+.dark .header__theme-toggle:active .header__theme-icon path,
+.header__theme-toggle:hover .header__theme-icon path {
+  fill: #90a4d4;
+}
