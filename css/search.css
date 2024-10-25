@@ -57,6 +57,22 @@
   background-color: #60abff;
 }
 
+/* Dark Mode */
+.dark .search__content {
+  background-color: #1e2a47;
+  box-shadow: initial;
+}
+
+.dark .search__input {
+  color: #ffffff;
+  background-color: #1e2a47;
+}
+
+.dark .search__input::placeholder {
+  color: #ffffff;
+}
+
+/* Mobile */
 @media (max-width: 375px) {
   .search {
     margin-bottom: 1rem;
