@@ -128,45 +128,45 @@
 }
 
 /* Dark Mode */
-.dark .profile-card {
+.darkmode .profile-card {
   background-color: #1e2a47;
   box-shadow: initial;
 }
 
-.dark .profile-card__name {
+.darkmode .profile-card__name {
   color: #ffffff;
 }
 
-.dark .profile-card__join-date {
+.darkmode .profile-card__join-date {
   color: #ffffff;
 }
 
-.dark .profile-card__bio-text {
+.darkmode .profile-card__bio-text {
   color: #ffffff;
 }
 
-.dark .profile-card__metrics {
+.darkmode .profile-card__metrics {
   background-color: #141d2f;
 }
 
-.dark .profile-card__metric-title {
+.darkmode .profile-card__metric-title {
   color: #ffffff;
 }
 
-.dark .profile-card__metric-value {
+.darkmode .profile-card__metric-value {
   color: #ffffff;
 }
 
-.dark .profile-card__contact-item {
+.darkmode .profile-card__contact-item {
   color: #ffffff;
 }
 
-.dark .profile-card__item--not-available {
+.darkmode .profile-card__item--not-available {
   color: rgb(143, 150, 163);
 }
 
-.dark .profile-card__item--not-available path,
-.dark .profile-card__item--not-available g {
+.darkmode .profile-card__item--not-available path,
+.darkmode .profile-card__item--not-available g {
   fill: rgb(143, 150, 163);
 }
 

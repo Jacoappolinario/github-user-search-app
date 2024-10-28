@@ -58,17 +58,17 @@
 }
 
 /* Dark Mode */
-.dark .search__content {
+.darkmode .search__content {
   background-color: #1e2a47;
   box-shadow: initial;
 }
 
-.dark .search__input {
+.darkmode .search__input {
   color: #ffffff;
   background-color: #1e2a47;
 }
 
-.dark .search__input::placeholder {
+.darkmode .search__input::placeholder {
   color: #ffffff;
 }
 
