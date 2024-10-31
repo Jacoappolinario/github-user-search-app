@@ -161,6 +161,11 @@
   color: #ffffff;
 }
 
+.darkmode .profile-card__contact-icon path,
+.darkmode .profile-card__contact-icon g {
+  fill: #ffffff;
+}
+
 .darkmode .profile-card__item--not-available {
   color: rgb(143, 150, 163);
 }
