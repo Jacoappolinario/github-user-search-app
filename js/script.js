@@ -86,8 +86,6 @@ function fillLayout(formattedData) {
 
       element.innerText = value;
 
-      console.log(element.parentElement);
-
       if (isNotAvailable) {
         element.parentElement.classList.add(
           "profile-card__item--not-available"
