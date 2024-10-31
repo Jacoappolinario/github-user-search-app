@@ -62,7 +62,7 @@ function formatUserData(data) {
     ...data,
     username: usernameWithAt(data.login),
     created_at: formatDate(data.created_at),
-    bio: "This profile has no bio",
+    bio: defaultMessage(data.bio, "This profile has no bio"),
     location: defaultMessage(data.location, "Not Available"),
     blog: defaultMessage(data.blog, "Not Available"),
     twitter_username: defaultMessage(data.twitter_username, "Not Available"),
