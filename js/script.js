@@ -75,21 +75,26 @@ function fillLayout(formattedData) {
     const fieldName = element.dataset.field;
     const value = formattedData[fieldName];
 
-    if (element.tagName === "IMG") {
+    if (element.tagName.toLowerCase() === "img") {
       element.src = value;
       element.onerror = () => {
         element.src = "./assets/avatar-img.jpg";
       };
     } else {
+      element.parentElement.classList.remove("not-available");
+
       const isNotAvailable =
         value === "Not Available" || value === "This profile has no bio";
 
-      element.innerText = value;
+      if (element.tagName.toLowerCase() === "a" && !isNotAvailable) {
+        element.setAttribute("href", value);
+        element.innerText = value;
+      } else {
+        element.innerText = value;
+      }
 
       if (isNotAvailable) {
-        element.parentElement.classList.add(
-          "profile-card__item--not-available"
-        );
+        element.parentElement.classList.add("not-available");
       }
     }
   });
@@ -97,7 +102,6 @@ function fillLayout(formattedData) {
 
 async function fetchGithubUser(username) {
   searchError.classList.remove("active");
-
   try {
     const response = await fetch(`https://api.github.com/users/${username}`);
 

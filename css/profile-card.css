@@ -65,6 +65,10 @@
   color: #4b6a9b;
 }
 
+.profile-card__bio.not-available .profile-card__bio-text {
+  opacity: 0.75;
+}
+
 .profile-card__metrics {
   display: flex;
   background-color: #f6f8ff;
@@ -118,13 +122,16 @@
   text-decoration: underline;
 }
 
-.profile-card__item--not-available {
-  color: rgb(164, 180, 204);
+.profile-card__contact-item.not-available .profile-card__contact-icon path,
+.profile-card__contact-item.not-available .profile-card__contact-icon g,
+.profile-card__contact-item.not-available .profile-card__contact-link,
+.profile-card__contact-item.not-available .profile-card__contact-text {
+  opacity: 0.75;
 }
 
-.profile-card__item--not-available path,
-.profile-card__item--not-available g {
-  fill: rgb(164, 180, 204);
+.profile-card__contact-item.not-available .profile-card__contact-link,
+.profile-card__contact-item.not-available .profile-card__contact-text {
+  pointer-events: none;
 }
 
 /* Dark Mode */
@@ -164,15 +171,6 @@
 .darkmode .profile-card__contact-icon path,
 .darkmode .profile-card__contact-icon g {
   fill: #ffffff;
-}
-
-.darkmode .profile-card__item--not-available {
-  color: rgb(143, 150, 163);
-}
-
-.darkmode .profile-card__item--not-available path,
-.darkmode .profile-card__item--not-available g {
-  fill: rgb(143, 150, 163);
 }
 
 /* Tablet */
