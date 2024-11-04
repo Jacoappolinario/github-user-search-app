@@ -25,6 +25,11 @@ const searchSubmit = document.querySelector(".search__submit");
 const searchError = document.querySelector(".search__error");
 const elements = document.querySelectorAll("[data-field]");
 
+const DEFAULT_MESSAGES = {
+  NOT_AVAILABLE: "Not Available",
+  NO_BIO: "This profile has no bio",
+};
+
 function formatDate(dateString) {
   const date = new Date(dateString);
   const months = [
@@ -58,44 +63,66 @@ function defaultMessage(value, defaultText) {
 }
 
 function formatUserData(data) {
-  return {
-    ...data,
-    username: usernameWithAt(data.login),
-    created_at: formatDate(data.created_at),
-    bio: defaultMessage(data.bio, "This profile has no bio"),
-    location: defaultMessage(data.location, "Not Available"),
-    blog: defaultMessage(data.blog, "Not Available"),
-    twitter_username: defaultMessage(data.twitter_username, "Not Available"),
-    company: defaultMessage(data.company, "Not Available"),
+  const formatKey = {
+    created_at: (value) => formatDate(value),
+    bio: (value) => defaultMessage(value, DEFAULT_MESSAGES.NO_BIO),
+    twitter_username: (value) =>
+      value ? usernameWithAt(value) : DEFAULT_MESSAGES.NOT_AVAILABLE,
+    company: (value) =>
+      value ? usernameWithAt(value) : DEFAULT_MESSAGES.NOT_AVAILABLE,
   };
+
+  if (data.login) data.username = usernameWithAt(data.login);
+
+  for (const [key, value] of Object.entries(data)) {
+    data[key] = formatKey[key]
+      ? formatKey[key](value)
+      : defaultMessage(value, DEFAULT_MESSAGES.NOT_AVAILABLE);
+  }
+
+  return data;
 }
 
-function fillLayout(formattedData) {
-  elements.forEach((element) => {
-    const fieldName = element.dataset.field;
-    const value = formattedData[fieldName];
+function isValid(value) {
+  return (
+    value &&
+    ![DEFAULT_MESSAGES.NOT_AVAILABLE, DEFAULT_MESSAGES.NO_BIO].includes(value)
+  );
+}
 
-    if (element.tagName.toLowerCase() === "img") {
+function updateElementContent(element, value) {
+  const actions = {
+    img: () => {
       element.src = value;
       element.onerror = () => {
         element.src = "./assets/avatar-img.jpg";
       };
+    },
+    a: () => {
+      element.setAttribute("href", value);
+      element.innerText = value;
+    },
+    default: () => {
+      element.innerText = value;
+    },
+  };
+
+  (actions[element.tagName.toLowerCase()] || actions.default)();
+}
+
+function fillLayout(data) {
+  elements.forEach((element) => {
+    const fieldName = element.dataset.field;
+    const value = data[fieldName];
+    const parentClassList = element.parentElement.classList;
+
+    parentClassList.remove("not-available");
+
+    if (isValid(value)) {
+      updateElementContent(element, value);
     } else {
-      element.parentElement.classList.remove("not-available");
-
-      const isNotAvailable =
-        value === "Not Available" || value === "This profile has no bio";
-
-      if (element.tagName.toLowerCase() === "a" && !isNotAvailable) {
-        element.setAttribute("href", value);
-        element.innerText = value;
-      } else {
-        element.innerText = value;
-      }
-
-      if (isNotAvailable) {
-        element.parentElement.classList.add("not-available");
-      }
+      parentClassList.add("not-available");
+      element.innerText = value;
     }
   });
 }
@@ -110,10 +137,10 @@ async function fetchGithubUser(username) {
       return;
     }
 
-    const data = await response.json();
-    const formattedData = formatUserData(data);
+    let data = await response.json();
+    data = formatUserData(data);
 
-    fillLayout(formattedData);
+    fillLayout(data);
   } catch (error) {
     console.error(`Error searching for user on Github ${error}`);
 
