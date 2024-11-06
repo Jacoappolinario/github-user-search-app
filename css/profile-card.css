@@ -65,6 +65,10 @@
   color: #4b6a9b;
 }
 
+.profile-card__bio.not-available .profile-card__bio-text {
+  opacity: 0.75;
+}
+
 .profile-card__metrics {
   display: flex;
   background-color: #f6f8ff;
@@ -118,61 +122,55 @@
   text-decoration: underline;
 }
 
-.profile-card__item--not-available {
-  color: rgb(164, 180, 204);
+.profile-card__contact-item.not-available .profile-card__contact-icon path,
+.profile-card__contact-item.not-available .profile-card__contact-icon g,
+.profile-card__contact-item.not-available .profile-card__contact-link,
+.profile-card__contact-item.not-available .profile-card__contact-text {
+  opacity: 0.75;
 }
 
-.profile-card__item--not-available path,
-.profile-card__item--not-available g {
-  fill: rgb(164, 180, 204);
+.profile-card__contact-item.not-available .profile-card__contact-link,
+.profile-card__contact-item.not-available .profile-card__contact-text {
+  pointer-events: none;
 }
 
 /* Dark Mode */
-.darkmode .profile-card {
+.dark-mode .profile-card {
   background-color: #1e2a47;
   box-shadow: initial;
 }
 
-.darkmode .profile-card__name {
+.dark-mode .profile-card__name {
   color: #ffffff;
 }
 
-.darkmode .profile-card__join-date {
+.dark-mode .profile-card__join-date {
   color: #ffffff;
 }
 
-.darkmode .profile-card__bio-text {
+.dark-mode .profile-card__bio-text {
   color: #ffffff;
 }
 
-.darkmode .profile-card__metrics {
+.dark-mode .profile-card__metrics {
   background-color: #141d2f;
 }
 
-.darkmode .profile-card__metric-title {
+.dark-mode .profile-card__metric-title {
   color: #ffffff;
 }
 
-.darkmode .profile-card__metric-value {
+.dark-mode .profile-card__metric-value {
   color: #ffffff;
 }
 
-.darkmode .profile-card__contact-item {
+.dark-mode .profile-card__contact-item {
   color: #ffffff;
 }
 
-.darkmode .profile-card__contact-icon path,
-.darkmode .profile-card__contact-icon g {
+.dark-mode .profile-card__contact-icon path,
+.dark-mode .profile-card__contact-icon g {
   fill: #ffffff;
-}
-
-.darkmode .profile-card__item--not-available {
-  color: rgb(143, 150, 163);
-}
-
-.darkmode .profile-card__item--not-available path,
-.darkmode .profile-card__item--not-available g {
-  fill: rgb(143, 150, 163);
 }
 
 /* Tablet */
