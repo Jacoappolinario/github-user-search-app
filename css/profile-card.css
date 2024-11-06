@@ -135,41 +135,41 @@
 }
 
 /* Dark Mode */
-.darkmode .profile-card {
+.dark-mode .profile-card {
   background-color: #1e2a47;
   box-shadow: initial;
 }
 
-.darkmode .profile-card__name {
+.dark-mode .profile-card__name {
   color: #ffffff;
 }
 
-.darkmode .profile-card__join-date {
+.dark-mode .profile-card__join-date {
   color: #ffffff;
 }
 
-.darkmode .profile-card__bio-text {
+.dark-mode .profile-card__bio-text {
   color: #ffffff;
 }
 
-.darkmode .profile-card__metrics {
+.dark-mode .profile-card__metrics {
   background-color: #141d2f;
 }
 
-.darkmode .profile-card__metric-title {
+.dark-mode .profile-card__metric-title {
   color: #ffffff;
 }
 
-.darkmode .profile-card__metric-value {
+.dark-mode .profile-card__metric-value {
   color: #ffffff;
 }
 
-.darkmode .profile-card__contact-item {
+.dark-mode .profile-card__contact-item {
   color: #ffffff;
 }
 
-.darkmode .profile-card__contact-icon path,
-.darkmode .profile-card__contact-icon g {
+.dark-mode .profile-card__contact-icon path,
+.dark-mode .profile-card__contact-icon g {
   fill: #ffffff;
 }
 
