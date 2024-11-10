@@ -1,0 +1,59 @@
+body {
+  margin: 0px;
+  background-color: #f6f8ff;
+  font-family: "Space Mono", monospace;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0px;
+}
+
+ul {
+  padding: 0px;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 45.625rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #141d2f;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .container {
+    max-width: 35.813rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 375px) {
+  .container {
+    max-width: 20.438rem;
+    padding: 1.938rem 1.5rem 4.938rem 1.5rem;
+  }
+}
