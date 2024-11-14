@@ -74,7 +74,7 @@ export default function initFetchGithubUser() {
       img: () => {
         element.src = value;
         element.onerror = () => {
-          element.src = "./assets/avatar-img.jpg";
+          element.src = "./assets/avatar-img.png";
         };
       },
       a: () => {
