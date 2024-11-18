@@ -4,8 +4,10 @@ body {
   font-family: "Space Mono", monospace;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  max-width: 45.625rem;
+  margin: 0 auto;
 }
 
 img {
@@ -31,13 +33,6 @@ a {
   color: inherit;
 }
 
-.container {
-  max-width: 45.625rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 /* Dark Mode */
 body.dark-mode {
   background-color: #141d2f;
@@ -45,14 +40,14 @@ body.dark-mode {
 
 /* Tablet */
 @media (max-width: 768px) {
-  .container {
+  body {
     max-width: 35.813rem;
   }
 }
 
 /* Mobile */
 @media (max-width: 375px) {
-  .container {
+  body {
     max-width: 20.438rem;
     padding: 1.938rem 1.5rem 4.938rem 1.5rem;
   }
