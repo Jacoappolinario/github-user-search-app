@@ -4,8 +4,8 @@
   "description": "![Design preview for the GitHub user search app coding challenge](./preview.jpg)",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production --entry ./js/script.js -o ./",
-    "dev": "webpack --mode development --watch --entry ./js/script.js -o ./"
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,11 @@
   },
   "homepage": "https://github.com/Jacoappolinario/github-user-search-app#readme",
   "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/plugin-transform-runtime": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/runtime": "^7.28.2",
+    "babel-loader": "^10.0.0",
     "eslint": "^9.33.0",
     "webpack": "^5.101.1",
     "webpack-cli": "^6.0.1"
