@@ -1,2 +1,119 @@
-/*! For license information please see main.js.LICENSE.txt */
-(()=>{var t={172:t=>{t.exports=function(t,e){this.v=t,this.k=e},t.exports.__esModule=!0,t.exports.default=t.exports},373:t=>{t.exports=function(t){var e=Object(t),r=[];for(var n in e)r.unshift(n);return function t(){for(;r.length;)if((n=r.pop())in e)return t.value=n,t.done=!1,t;return t.done=!0,t}},t.exports.__esModule=!0,t.exports.default=t.exports},546:t=>{function e(r,n,o,u){var a=Object.defineProperty;try{a({},"",{})}catch(r){a=0}t.exports=e=function(t,r,n,o){function u(r,n){e(t,r,function(t){return this._invoke(r,n,t)})}r?a?a(t,r,{value:n,enumerable:!o,configurable:!o,writable:!o}):t[r]=n:(u("next",0),u("throw",1),u("return",2))},t.exports.__esModule=!0,t.exports.default=t.exports,e(r,n,o,u)}t.exports=e,t.exports.__esModule=!0,t.exports.default=t.exports},579:(t,e,r)=>{var n=r(738).default;t.exports=function(t){if(null!=t){var e=t["function"==typeof Symbol&&Symbol.iterator||"@@iterator"],r=0;if(e)return e.call(t);if("function"==typeof t.next)return t;if(!isNaN(t.length))return{next:function(){return t&&r>=t.length&&(t=void 0),{value:t&&t[r++],done:!t}}}}throw new TypeError(n(t)+" is not iterable")},t.exports.__esModule=!0,t.exports.default=t.exports},633:(t,e,r)=>{var n=r(172),o=r(993),u=r(869),a=r(887),i=r(791),c=r(373),s=r(579);function f(){"use strict";var e=o(),r=e.m(f),l=(Object.getPrototypeOf?Object.getPrototypeOf(r):r.__proto__).constructor;function p(t){var e="function"==typeof t&&t.constructor;return!!e&&(e===l||"GeneratorFunction"===(e.displayName||e.name))}var d={throw:1,return:2,break:3,continue:3};function v(t){var e,r;return function(n){e||(e={stop:function(){return r(n.a,2)},catch:function(){return n.v},abrupt:function(t,e){return r(n.a,d[t],e)},delegateYield:function(t,o,u){return e.resultName=o,r(n.d,s(t),u)},finish:function(t){return r(n.f,t)}},r=function(t,r,o){n.p=e.prev,n.n=e.next;try{return t(r,o)}finally{e.next=n.n}}),e.resultName&&(e[e.resultName]=n.v,e.resultName=void 0),e.sent=n.v,e.next=n.n;try{return t.call(this,e)}finally{n.p=e.prev,n.n=e.next}}}return(t.exports=f=function(){return{wrap:function(t,r,n,o){return e.w(v(t),r,n,o&&o.reverse())},isGeneratorFunction:p,mark:e.m,awrap:function(t,e){return new n(t,e)},AsyncIterator:i,async:function(t,e,r,n,o){return(p(e)?a:u)(v(t),e,r,n,o)},keys:c,values:s}},t.exports.__esModule=!0,t.exports.default=t.exports)()}t.exports=f,t.exports.__esModule=!0,t.exports.default=t.exports},738:t=>{function e(r){return t.exports=e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},t.exports.__esModule=!0,t.exports.default=t.exports,e(r)}t.exports=e,t.exports.__esModule=!0,t.exports.default=t.exports},756:(t,e,r)=>{var n=r(633)();t.exports=n;try{regeneratorRuntime=n}catch(t){"object"==typeof globalThis?globalThis.regeneratorRuntime=n:Function("r","regeneratorRuntime = r")(n)}},791:(t,e,r)=>{var n=r(172),o=r(546);t.exports=function t(e,r){function u(t,o,a,i){try{var c=e[t](o),s=c.value;return s instanceof n?r.resolve(s.v).then(function(t){u("next",t,a,i)},function(t){u("throw",t,a,i)}):r.resolve(s).then(function(t){c.value=t,a(c)},function(t){return u("throw",t,a,i)})}catch(t){i(t)}}var a;this.next||(o(t.prototype),o(t.prototype,"function"==typeof Symbol&&Symbol.asyncIterator||"@asyncIterator",function(){return this})),o(this,"_invoke",function(t,e,n){function o(){return new r(function(e,r){u(t,n,e,r)})}return a=a?a.then(o,o):o()},!0)},t.exports.__esModule=!0,t.exports.default=t.exports},869:(t,e,r)=>{var n=r(887);t.exports=function(t,e,r,o,u){var a=n(t,e,r,o,u);return a.next().then(function(t){return t.done?t.value:a.next()})},t.exports.__esModule=!0,t.exports.default=t.exports},887:(t,e,r)=>{var n=r(993),o=r(791);t.exports=function(t,e,r,u,a){return new o(n().w(t,e,r,u),a||Promise)},t.exports.__esModule=!0,t.exports.default=t.exports},993:(t,e,r)=>{var n=r(546);function o(){var e,r,u="function"==typeof Symbol?Symbol:{},a=u.iterator||"@@iterator",i=u.toStringTag||"@@toStringTag";function c(t,o,u,a){var i=o&&o.prototype instanceof f?o:f,c=Object.create(i.prototype);return n(c,"_invoke",function(t,n,o){var u,a,i,c=0,f=o||[],l=!1,p={p:0,n:0,v:e,a:d,f:d.bind(e,4),d:function(t,r){return u=t,a=0,i=e,p.n=r,s}};function d(t,n){for(a=t,i=n,r=0;!l&&c&&!o&&r<f.length;r++){var o,u=f[r],d=p.p,v=u[2];t>3?(o=v===n)&&(i=u[(a=u[4])?5:(a=3,3)],u[4]=u[5]=e):u[0]<=d&&((o=t<2&&d<u[1])?(a=0,p.v=n,p.n=u[1]):d<v&&(o=t<3||u[0]>n||n>v)&&(u[4]=t,u[5]=n,p.n=v,a=0))}if(o||t>1)return s;throw l=!0,n}return function(o,f,v){if(c>1)throw TypeError("Generator is already running");for(l&&1===f&&d(f,v),a=f,i=v;(r=a<2?e:i)||!l;){u||(a?a<3?(a>1&&(p.n=-1),d(a,i)):p.n=i:p.v=i);try{if(c=2,u){if(a||(o="next"),r=u[o]){if(!(r=r.call(u,i)))throw TypeError("iterator result is not an object");if(!r.done)return r;i=r.value,a<2&&(a=0)}else 1===a&&(r=u.return)&&r.call(u),a<2&&(i=TypeError("The iterator does not provide a '"+o+"' method"),a=1);u=e}else if((r=(l=p.n<0)?i:t.call(n,p))!==s)break}catch(t){u=e,a=1,i=t}finally{c=1}}return{value:r,done:l}}}(t,u,a),!0),c}var s={};function f(){}function l(){}function p(){}r=Object.getPrototypeOf;var d=[][a]?r(r([][a]())):(n(r={},a,function(){return this}),r),v=p.prototype=f.prototype=Object.create(d);function y(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,p):(t.__proto__=p,n(t,i,"GeneratorFunction")),t.prototype=Object.create(v),t}return l.prototype=p,n(v,"constructor",p),n(p,"constructor",l),l.displayName="GeneratorFunction",n(p,i,"GeneratorFunction"),n(v),n(v,i,"Generator"),n(v,a,function(){return this}),n(v,"toString",function(){return"[object Generator]"}),(t.exports=o=function(){return{w:c,m:y}},t.exports.__esModule=!0,t.exports.default=t.exports)()}t.exports=o,t.exports.__esModule=!0,t.exports.default=t.exports}},e={};function r(n){var o=e[n];if(void 0!==o)return o.exports;var u=e[n]={exports:{}};return t[n](u,u.exports,r),u.exports}r.n=t=>{var e=t&&t.__esModule?()=>t.default:()=>t;return r.d(e,{a:e}),e},r.d=(t,e)=>{for(var n in e)r.o(e,n)&&!r.o(t,n)&&Object.defineProperty(t,n,{enumerable:!0,get:e[n]})},r.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e),(()=>{"use strict";function t(t,e,r,n,o,u,a){try{var i=t[u](a),c=i.value}catch(t){return void r(t)}i.done?e(c):Promise.resolve(c).then(n,o)}function e(t,e){(null==e||e>t.length)&&(e=t.length);for(var r=0,n=Array(e);r<e;r++)n[r]=t[r];return n}function n(t,r){return function(t){if(Array.isArray(t))return t}(t)||function(t,e){var r=null==t?null:"undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(null!=r){var n,o,u,a,i=[],c=!0,s=!1;try{if(u=(r=r.call(t)).next,0===e){if(Object(r)!==r)return;c=!1}else for(;!(c=(n=u.call(r)).done)&&(i.push(n.value),i.length!==e);c=!0);}catch(t){s=!0,o=t}finally{try{if(!c&&null!=r.return&&(a=r.return(),Object(a)!==a))return}finally{if(s)throw o}}return i}}(t,r)||function(t,r){if(t){if("string"==typeof t)return e(t,r);var n={}.toString.call(t).slice(8,-1);return"Object"===n&&t.constructor&&(n=t.constructor.name),"Map"===n||"Set"===n?Array.from(t):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?e(t,r):void 0}}(t,r)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}var o=r(756),u=r.n(o);!function(){var t="dark-mode",e="darkMode",r="active",n="null",o=localStorage.getItem(e),u=document.querySelector(".header__theme-toggle");function a(t){localStorage.setItem(e,t)}function i(){document.body.classList.add(t),a(r)}function c(){return o===r}c()&&i(),u.addEventListener("click",function(){c()?(document.body.classList.remove(t),a(n),o=n):(i(),o=r)})}(),function(){var e=document.querySelector(".header__search-form"),r=document.querySelector(".header__search-input"),o=document.querySelector(".header__search-error"),a=document.querySelectorAll("[data-field]"),i={NOT_AVAILABLE:"Not Available",NO_BIO:"This profile has no bio"},c="profile-card--not-available",s="header__search-error--visible";function f(t){return"@".concat(t.toLowerCase())}function l(t,e){return t||0===t?t:e}function p(t){var e={created_at:function(t){return r=(e=new Date(t)).getDate().toString().padStart(2,"0"),n=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][e.getMonth()],o=e.getFullYear(),"Joined ".concat(r," ").concat(n," ").concat(o);var e,r,n,o},bio:function(t){return l(t,i.NO_BIO)},twitter_username:function(t){return t?f(t):i.NOT_AVAILABLE},company:function(t){return t?f(t):i.NOT_AVAILABLE}};t.login&&(t.username=f(t.login));for(var r=0,o=Object.entries(t);r<o.length;r++){var u=n(o[r],2),a=u[0],c=u[1];t[a]=e[a]?e[a](c):l(c,i.NOT_AVAILABLE)}return t}function d(t){a.forEach(function(e){var r=e.dataset.field,n=t[r],o=e.parentElement.classList;o.remove(c),function(t){return t&&![i.NOT_AVAILABLE,i.NO_BIO].includes(t)}(n)?function(t,e){var r={img:function(){t.src=e,t.onerror=function(){t.src="./assets/avatar-img.png"}},a:function(){t.setAttribute("href",e),t.innerText=e},default:function(){t.innerText=e}};(r[t.tagName.toLowerCase()]||r.default)()}(e,n):(o.add(c),e.innerText=n)})}function v(){var e;return e=u().mark(function t(e){var r,n;return u().wrap(function(t){for(;;)switch(t.prev=t.next){case 0:return o.classList.remove(s),t.prev=1,t.next=2,fetch("".concat("https://api.github.com/users","/").concat(e));case 2:if((r=t.sent).ok){t.next=3;break}return o.classList.add(s),t.abrupt("return");case 3:return t.next=4,r.json();case 4:d(p(t.sent)),t.next=6;break;case 5:t.prev=5,n=t.catch(1),console.error("Error searching for user on Github ".concat(n)),o.classList.add(s);case 6:case"end":return t.stop()}},t,null,[[1,5]])}),v=function(){var r=this,n=arguments;return new Promise(function(o,u){var a=e.apply(r,n);function i(e){t(a,o,u,i,c,"next",e)}function c(e){t(a,o,u,i,c,"throw",e)}i(void 0)})},v.apply(this,arguments)}e.addEventListener("submit",function(t){t.preventDefault(),function(t){v.apply(this,arguments)}(r.value)})}()})()})();
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./js/modules/dark-mode.js":
+/*!*********************************!*\
+  !*** ./js/modules/dark-mode.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ initDarkMode)\n/* harmony export */ });\nfunction initDarkMode() {\n  var DARK_MODE_CLASS = \"dark-mode\";\n  var DARK_MODE_ITEM = \"darkMode\";\n  var DARK_MODE_STATUS = \"active\";\n  var DARK_MODE_DISABLED_STATUS = \"null\";\n  var darkMode = localStorage.getItem(DARK_MODE_ITEM);\n  var themeToggle = document.querySelector(\".header__theme-toggle\");\n  function setDarkModeStatus(status) {\n    localStorage.setItem(DARK_MODE_ITEM, status);\n  }\n  function enableDarkMode() {\n    document.body.classList.add(DARK_MODE_CLASS);\n    setDarkModeStatus(DARK_MODE_STATUS);\n  }\n  function disableDarkMode() {\n    document.body.classList.remove(DARK_MODE_CLASS);\n    setDarkModeStatus(DARK_MODE_DISABLED_STATUS);\n  }\n  function isDarkModeEnabled() {\n    return darkMode === DARK_MODE_STATUS;\n  }\n  function toggleDarkMode() {\n    if (isDarkModeEnabled()) {\n      disableDarkMode();\n      darkMode = DARK_MODE_DISABLED_STATUS;\n    } else {\n      enableDarkMode();\n      darkMode = DARK_MODE_STATUS;\n    }\n  }\n  if (isDarkModeEnabled()) enableDarkMode();\n  themeToggle.addEventListener(\"click\", toggleDarkMode);\n}\n\n//# sourceURL=webpack://github-user-search-app/./js/modules/dark-mode.js?\n}");
+
+/***/ }),
+
+/***/ "./js/modules/fetch-github-user.js":
+/*!*****************************************!*\
+  !*** ./js/modules/fetch-github-user.js ***!
+  \*****************************************/
+/***/ (() => {
+
+eval("{\n\n//# sourceURL=webpack://github-user-search-app/./js/modules/fetch-github-user.js?\n}");
+
+/***/ }),
+
+/***/ "./js/script.js":
+/*!**********************!*\
+  !*** ./js/script.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_dark_mode_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/dark-mode.js */ \"./js/modules/dark-mode.js\");\n/* harmony import */ var _modules_fetch_github_user_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/fetch-github-user.js */ \"./js/modules/fetch-github-user.js\");\n/* harmony import */ var _modules_fetch_github_user_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_fetch_github_user_js__WEBPACK_IMPORTED_MODULE_1__);\n\n\n(0,_modules_dark_mode_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n_modules_fetch_github_user_js__WEBPACK_IMPORTED_MODULE_1___default()();\n\n//# sourceURL=webpack://github-user-search-app/./js/script.js?\n}");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./js/script.js");
+/******/ 	
+/******/ })()
+;
