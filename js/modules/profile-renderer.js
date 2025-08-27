@@ -1,3 +1,5 @@
+import { formatUserData } from "./helpers.js";
+
 export default class ProfileRenderer {
   constructor(
     headerSearchForm,
@@ -5,7 +7,8 @@ export default class ProfileRenderer {
     headerSearchError,
     allElementsDataFields,
     defaultMessages,
-    modifierClasses
+    modifierClasses,
+    GITHUB_API_BASE_URL
   ) {
     this.headerSearchForm = document.querySelector(headerSearchForm);
     this.headerSearchInput = document.querySelector(headerSearchInput);
@@ -21,64 +24,9 @@ export default class ProfileRenderer {
 
     this.modifierClasses = { ...modifierClasses };
 
-    this.searchForUserInformation = this.searchForUserInformation.bind(this);
-  }
+    this.GITHUB_API_BASE_URL = GITHUB_API_BASE_URL;
 
-  formatDateString(dateString) {
-    if (!dateString || isNaN(new Date(dateString))) {
-      return this.defaultMessages.NOT_AVAILABLE;
-    }
-
-    const date = new Date(dateString);
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-
-    const day = date.getDate().toString().padStart(2, "0");
-    const month = months[date.getMonth()];
-    const year = date.getFullYear();
-
-    return `Joined ${day} ${month} ${year}`;
-  }
-
-  usernameWithAt(value) {
-    return `@${value.toLowerCase()}`;
-  }
-
-  withDefaultValue(value, defaultText) {
-    return !value && value !== 0 ? defaultText : value;
-  }
-
-  formatUserData(data) {
-    const formatKey = {
-      created_at: (value) => this.formatDateString(value),
-      bio: (value) => this.withDefaultValue(value, this.defaultMessages.NO_BIO),
-      twitter_username: (value) =>
-        value ? this.usernameWithAt(value) : this.defaultMessages.NOT_AVAILABLE,
-      company: (value) =>
-        value ? this.usernameWithAt(value) : this.defaultMessages.NOT_AVAILABLE,
-    };
-
-    if (data.login) data.username = this.usernameWithAt(data.login);
-
-    for (const [key, value] of Object.entries(data)) {
-      data[key] = formatKey[key]
-        ? formatKey[key](value)
-        : this.withDefaultValue(value, this.defaultMessages.NOT_AVAILABLE);
-    }
-
-    return data;
+    this.triggerUserSearch = this.triggerUserSearch.bind(this);
   }
 
   isValid(value) {
@@ -128,17 +76,37 @@ export default class ProfileRenderer {
     });
   }
 
-  searchForUserInformation(event) {
+  async fetchGithubUser(username) {
+    this.headerSearchError.classList.remove(this.modifierClasses.VISIBLE);
+
+    try {
+      const response = await fetch(`${this.GITHUB_API_BASE_URL}/${username}`);
+
+      if (!response.ok) {
+        this.headerSearchError.classList.add(this.modifierClasses.VISIBLE);
+        return;
+      }
+
+      let data = await response.json();
+      console.log("🚀 ~ ProfileRenderer ~ fetchGithubUser ~ data:", data);
+      data = formatUserData(data);
+
+      this.fillLayout(data);
+    } catch (error) {
+      console.error(`Error searching for user on Github ${error}`);
+
+      this.headerSearchError.classList.add(this.modifierClasses.VISIBLE);
+    }
+  }
+
+  triggerUserSearch(event) {
     event.preventDefault();
     const username = this.headerSearchInput.value.trim();
-    if (username) fetchGithubUser(username);
+    if (username) this.fetchGithubUser(username);
   }
 
   addSubmitEvent() {
-    this.headerSearchForm.addEventListener(
-      "submit",
-      this.searchForUserInformation
-    );
+    this.headerSearchForm.addEventListener("submit", this.triggerUserSearch);
   }
 
   init() {
