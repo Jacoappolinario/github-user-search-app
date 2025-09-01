@@ -1,3 +1,11 @@
+import { getUser } from "./api-service.js";
+import {
+  formatDateString,
+  usernameWithAt,
+  withDefaultValue,
+  hasValidValue,
+} from "./utils.js";
+
 export default class ProfileRenderer {
   constructor(
     headerSearchForm,
@@ -5,8 +13,7 @@ export default class ProfileRenderer {
     headerSearchError,
     allElementsDataFields,
     defaultMessages,
-    modifierClasses,
-    GITHUB_API_BASE_URL
+    modifierClasses
   ) {
     this.headerSearchForm = document.querySelector(headerSearchForm);
     this.headerSearchInput = document.querySelector(headerSearchInput);
@@ -20,78 +27,34 @@ export default class ProfileRenderer {
       NO_BIO: "This profile has no bio",
     };
 
-    this.GITHUB_API_BASE_URL = GITHUB_API_BASE_URL;
-
     this.modifierClasses = { ...modifierClasses };
 
     this.handleUserSearch = this.handleUserSearch.bind(this);
   }
 
-  formatDateString(dateString) {
-    if (!dateString || isNaN(new Date(dateString))) {
-      return this.defaultMessages.NOT_AVAILABLE;
-    }
-
-    const date = new Date(dateString);
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-
-    const day = date.getDate().toString().padStart(2, "0");
-    const month = months[date.getMonth()];
-    const year = date.getFullYear();
-
-    return `Joined ${day} ${month} ${year}`;
-  }
-
-  usernameWithAt(value) {
-    return `@${value.toLowerCase()}`;
-  }
-
-  withDefaultValue(value, defaultText) {
-    return !value && value !== 0 ? defaultText : value;
-  }
-
   normalizeUserData(data) {
     const formatKey = {
-      created_at: (value) => this.formatDateString(value),
-      bio: (value) => this.withDefaultValue(value, this.defaultMessages.NO_BIO),
+      created_at: (value) =>
+        `Joined ${
+          formatDateString(value, this.defaultMessages.NOT_AVAILABLE)
+            .displayString
+        }`,
+      bio: (value) => withDefaultValue(value, this.defaultMessages.NO_BIO),
       twitter_username: (value) =>
-        value ? this.usernameWithAt(value) : this.defaultMessages.NOT_AVAILABLE,
+        value ? usernameWithAt(value) : this.defaultMessages.NOT_AVAILABLE,
       company: (value) =>
-        value ? this.usernameWithAt(value) : this.defaultMessages.NOT_AVAILABLE,
+        value ? usernameWithAt(value) : this.defaultMessages.NOT_AVAILABLE,
     };
 
-    if (data.login) data.username = this.usernameWithAt(data.login);
+    if (data.login) data.username = usernameWithAt(data.login);
 
     for (const [key, value] of Object.entries(data)) {
       data[key] = formatKey[key]
         ? formatKey[key](value)
-        : this.withDefaultValue(value, this.defaultMessages.NOT_AVAILABLE);
+        : withDefaultValue(value, this.defaultMessages.NOT_AVAILABLE);
     }
 
     return data;
-  }
-
-  hasValidValue(value) {
-    return (
-      value &&
-      ![
-        this.defaultMessages.NOT_AVAILABLE,
-        this.defaultMessages.NO_BIO,
-      ].includes(value)
-    );
   }
 
   setElementValue(element, value) {
@@ -122,7 +85,12 @@ export default class ProfileRenderer {
 
       parentClassList.remove(this.modifierClasses.NOT_AVAILABLE);
 
-      if (this.hasValidValue(value)) {
+      if (
+        hasValidValue(value, [
+          this.defaultMessages.NOT_AVAILABLE,
+          this.defaultMessages.NO_BIO,
+        ])
+      ) {
         this.setElementValue(element, value);
       } else {
         parentClassList.add(this.modifierClasses.NOT_AVAILABLE);
@@ -131,24 +99,15 @@ export default class ProfileRenderer {
     });
   }
 
-  async loadUserProfile(username) {
+  async showUserProfile(username) {
     this.headerSearchError.classList.remove(this.modifierClasses.VISIBLE);
 
     try {
-      const response = await fetch(`${this.GITHUB_API_BASE_URL}/${username}`);
-
-      if (!response.ok) {
-        this.headerSearchError.classList.add(this.modifierClasses.VISIBLE);
-        return;
-      }
-
-      let data = await response.json();
+      let data = await getUser(username);
       data = this.normalizeUserData(data);
-
       this.renderProfile(data);
     } catch (error) {
-      console.error(`Error searching for user on Github ${error}`);
-
+      console.error(error);
       this.headerSearchError.classList.add(this.modifierClasses.VISIBLE);
     }
   }
@@ -156,7 +115,7 @@ export default class ProfileRenderer {
   handleUserSearch(event) {
     event.preventDefault();
     const username = this.headerSearchInput.value.trim();
-    if (username) this.loadUserProfile(username);
+    if (username) this.showUserProfile(username);
   }
 
   addSubmitEvent() {

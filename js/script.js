@@ -10,8 +10,7 @@ const profileRenderer = new ProfileRenderer(
   {
     NOT_AVAILABLE: "profile-card--not-available",
     VISIBLE: "header__search-error--visible",
-  },
-  "https://api.github.com/users"
+  }
 );
 
 profileRenderer.init();
