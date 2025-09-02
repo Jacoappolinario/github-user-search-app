@@ -1,9 +1,11 @@
+import { DEFAULT_MESSAGES, MODIFIER_CLASSES } from "./constants.js";
 import { getUser } from "./api-service.js";
 import {
-  formatDateString,
   usernameWithAt,
-  withDefaultValue,
-  hasValidValue,
+  getWithDefault,
+  isValidValue,
+  getFieldFormatters,
+  updateElement,
 } from "./utils.js";
 
 export default class ProfileRenderer {
@@ -11,9 +13,7 @@ export default class ProfileRenderer {
     headerSearchForm,
     headerSearchInput,
     headerSearchError,
-    allElementsDataFields,
-    defaultMessages,
-    modifierClasses
+    allElementsDataFields
   ) {
     this.headerSearchForm = document.querySelector(headerSearchForm);
     this.headerSearchInput = document.querySelector(headerSearchInput);
@@ -22,59 +22,25 @@ export default class ProfileRenderer {
       allElementsDataFields
     );
 
-    this.defaultMessages = defaultMessages || {
-      NOT_AVAILABLE: "Not Available",
-      NO_BIO: "This profile has no bio",
-    };
+    this.defaultMessages = DEFAULT_MESSAGES;
 
-    this.modifierClasses = { ...modifierClasses };
+    this.modifierClasses = MODIFIER_CLASSES;
 
     this.handleUserSearch = this.handleUserSearch.bind(this);
   }
 
   normalizeUserData(data) {
-    const formatKey = {
-      created_at: (value) =>
-        `Joined ${
-          formatDateString(value, this.defaultMessages.NOT_AVAILABLE)
-            .displayString
-        }`,
-      bio: (value) => withDefaultValue(value, this.defaultMessages.NO_BIO),
-      twitter_username: (value) =>
-        value ? usernameWithAt(value) : this.defaultMessages.NOT_AVAILABLE,
-      company: (value) =>
-        value ? usernameWithAt(value) : this.defaultMessages.NOT_AVAILABLE,
-    };
+    const formatKey = getFieldFormatters(this.defaultMessages);
 
     if (data.login) data.username = usernameWithAt(data.login);
 
     for (const [key, value] of Object.entries(data)) {
       data[key] = formatKey[key]
         ? formatKey[key](value)
-        : withDefaultValue(value, this.defaultMessages.NOT_AVAILABLE);
+        : getWithDefault(value, this.defaultMessages.NOT_AVAILABLE);
     }
 
     return data;
-  }
-
-  setElementValue(element, value) {
-    const actions = {
-      img: () => {
-        element.src = value;
-        element.onerror = () => {
-          element.src = "./assets/avatar-img.png";
-        };
-      },
-      a: () => {
-        element.setAttribute("href", value);
-        element.innerText = value;
-      },
-      default: () => {
-        element.innerText = value;
-      },
-    };
-
-    (actions[element.tagName.toLowerCase()] || actions.default)();
   }
 
   renderProfile(data) {
@@ -85,13 +51,8 @@ export default class ProfileRenderer {
 
       parentClassList.remove(this.modifierClasses.NOT_AVAILABLE);
 
-      if (
-        hasValidValue(value, [
-          this.defaultMessages.NOT_AVAILABLE,
-          this.defaultMessages.NO_BIO,
-        ])
-      ) {
-        this.setElementValue(element, value);
+      if (isValidValue(value, this.defaultMessages)) {
+        updateElement(element, value);
       } else {
         parentClassList.add(this.modifierClasses.NOT_AVAILABLE);
         element.innerText = value;

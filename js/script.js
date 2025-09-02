@@ -5,12 +5,7 @@ const profileRenderer = new ProfileRenderer(
   ".header__search-form",
   ".header__search-input",
   ".header__search-error",
-  "[data-field]",
-  null,
-  {
-    NOT_AVAILABLE: "profile-card--not-available",
-    VISIBLE: "header__search-error--visible",
-  }
+  "[data-field]"
 );
 
 profileRenderer.init();

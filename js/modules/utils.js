@@ -36,10 +36,49 @@ export function usernameWithAt(value) {
   return `@${value.toLowerCase()}`;
 }
 
-export function withDefaultValue(value, defaultText) {
+export function getWithDefault(value, defaultText) {
   return !value && value !== 0 ? defaultText : value;
 }
 
-export function hasValidValue(value, invalidValues = []) {
-  return value && !invalidValues.includes(value);
+export function isValidValue(value, defaultMessages) {
+  return (
+    value &&
+    ![defaultMessages.NOT_AVAILABLE, defaultMessages.NO_BIO].includes(value)
+  );
+}
+
+export const getFieldFormatters = (defaultMessages) => ({
+  created_at: (value) =>
+    `Joined ${
+      formatDateString(value, defaultMessages.NOT_AVAILABLE).displayString
+    }`,
+  bio: (value) => getWithDefault(value, defaultMessages.NO_BIO),
+  twitter_username: (value) =>
+    value ? usernameWithAt(value) : defaultMessages.NOT_AVAILABLE,
+  company: (value) =>
+    value ? usernameWithAt(value) : defaultMessages.NOT_AVAILABLE,
+});
+
+export function updateElement(
+  element,
+  value,
+  fallbackImg = "./assets/avatar-img.png"
+) {
+  const actions = {
+    img: () => {
+      element.src = value;
+      element.onerror = () => {
+        element.src = fallbackImg;
+      };
+    },
+    a: () => {
+      element.setAttribute("href", value);
+      element.innerText = value;
+    },
+    default: () => {
+      element.innerText = value;
+    },
+  };
+
+  (actions[element.tagName.toLowerCase()] || actions.default)();
 }
