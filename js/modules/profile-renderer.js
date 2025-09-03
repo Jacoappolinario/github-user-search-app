@@ -16,7 +16,7 @@ export default class ProfileRenderer {
     allElementsDataFields,
     notAvailableClass,
     visibleClass,
-    customMessages = DEFAULT_MESSAGES,
+    customMessages = {},
   }) {
     this.headerSearchForm = document.querySelector(headerSearchForm);
     this.headerSearchInput = document.querySelector(headerSearchInput);
