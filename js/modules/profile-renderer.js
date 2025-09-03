@@ -1,4 +1,4 @@
-import { DEFAULT_MESSAGES, MODIFIER_CLASSES } from "./constants.js";
+import { DEFAULT_MESSAGES } from "./constants.js";
 import { getUser } from "./api-service.js";
 import {
   usernameWithAt,
@@ -9,35 +9,38 @@ import {
 } from "./utils.js";
 
 export default class ProfileRenderer {
-  constructor(
+  constructor({
     headerSearchForm,
     headerSearchInput,
     headerSearchError,
-    allElementsDataFields
-  ) {
+    allElementsDataFields,
+    notAvailableClass,
+    visibleClass,
+    customMessages = DEFAULT_MESSAGES,
+  }) {
     this.headerSearchForm = document.querySelector(headerSearchForm);
     this.headerSearchInput = document.querySelector(headerSearchInput);
     this.headerSearchError = document.querySelector(headerSearchError);
     this.allElementsDataFields = document.querySelectorAll(
       allElementsDataFields
     );
+    this.notAvailableClass = notAvailableClass;
+    this.visibleClass = visibleClass;
 
-    this.defaultMessages = DEFAULT_MESSAGES;
-
-    this.modifierClasses = MODIFIER_CLASSES;
+    this.fallbackMessages = { ...DEFAULT_MESSAGES, ...customMessages };
 
     this.handleUserSearch = this.handleUserSearch.bind(this);
   }
 
   normalizeUserData(data) {
-    const formatKey = getFieldFormatters(this.defaultMessages);
+    const formatKey = getFieldFormatters(this.fallbackMessages);
 
     if (data.login) data.username = usernameWithAt(data.login);
 
     for (const [key, value] of Object.entries(data)) {
       data[key] = formatKey[key]
         ? formatKey[key](value)
-        : getWithDefault(value, this.defaultMessages.NOT_AVAILABLE);
+        : getWithDefault(value, this.fallbackMessages.NOT_AVAILABLE);
     }
 
     return data;
@@ -49,27 +52,27 @@ export default class ProfileRenderer {
       const value = data[fieldName];
       const parentClassList = element.parentElement.classList;
 
-      parentClassList.remove(this.modifierClasses.NOT_AVAILABLE);
+      parentClassList.remove(this.notAvailableClass);
 
-      if (isValidValue(value, this.defaultMessages)) {
+      if (isValidValue(value, this.fallbackMessages)) {
         updateElement(element, value);
       } else {
-        parentClassList.add(this.modifierClasses.NOT_AVAILABLE);
+        parentClassList.add(this.notAvailableClass);
         element.innerText = value;
       }
     });
   }
 
   async showUserProfile(username) {
-    this.headerSearchError.classList.remove(this.modifierClasses.VISIBLE);
+    this.headerSearchError.classList.remove(this.visibleClass);
 
     try {
       let data = await getUser(username);
       data = this.normalizeUserData(data);
       this.renderProfile(data);
     } catch (error) {
-      console.error(error);
-      this.headerSearchError.classList.add(this.modifierClasses.VISIBLE);
+      console.error(error.message);
+      this.headerSearchError.classList.add(this.visibleClass);
     }
   }
 

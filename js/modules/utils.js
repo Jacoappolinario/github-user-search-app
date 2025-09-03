@@ -1,6 +1,6 @@
-export function formatDateString(dateString, fallbackMessage) {
+export function formatDateString(dateString, fallbackText) {
   if (!dateString || isNaN(new Date(dateString))) {
-    return fallbackMessage;
+    return fallbackText;
   }
 
   const date = new Date(dateString);
@@ -36,27 +36,27 @@ export function usernameWithAt(value) {
   return `@${value.toLowerCase()}`;
 }
 
-export function getWithDefault(value, defaultText) {
-  return !value && value !== 0 ? defaultText : value;
+export function getWithDefault(value, fallbackText) {
+  return !value && value !== 0 ? fallbackText : value;
 }
 
-export function isValidValue(value, defaultMessages) {
+export function isValidValue(value, fallbackMessages) {
   return (
     value &&
-    ![defaultMessages.NOT_AVAILABLE, defaultMessages.NO_BIO].includes(value)
+    ![fallbackMessages.NOT_AVAILABLE, fallbackMessages.NO_BIO].includes(value)
   );
 }
 
-export const getFieldFormatters = (defaultMessages) => ({
+export const getFieldFormatters = (fallbackMessages) => ({
   created_at: (value) =>
     `Joined ${
-      formatDateString(value, defaultMessages.NOT_AVAILABLE).displayString
+      formatDateString(value, fallbackMessages.NOT_AVAILABLE).displayString
     }`,
-  bio: (value) => getWithDefault(value, defaultMessages.NO_BIO),
+  bio: (value) => getWithDefault(value, fallbackMessages.NO_BIO),
   twitter_username: (value) =>
-    value ? usernameWithAt(value) : defaultMessages.NOT_AVAILABLE,
+    value ? usernameWithAt(value) : fallbackMessages.NOT_AVAILABLE,
   company: (value) =>
-    value ? usernameWithAt(value) : defaultMessages.NOT_AVAILABLE,
+    value ? usernameWithAt(value) : fallbackMessages.NOT_AVAILABLE,
 });
 
 export function updateElement(
