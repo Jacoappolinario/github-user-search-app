@@ -1,5 +1,5 @@
-import initDarkMode from "./modules/dark-mode.js";
 import ProfileRenderer from "./modules/profile-renderer.js";
+import DarkModeManager from "./modules/dark-mode-manager.js";
 
 const profileRenderer = new ProfileRenderer({
   headerSearchForm: ".header__search-form",
@@ -16,4 +16,8 @@ const profileRenderer = new ProfileRenderer({
 
 profileRenderer.init();
 
-initDarkMode();
+const darkModeManager = new DarkModeManager({
+  toggleSelector: ".header__theme-toggle",
+});
+
+darkModeManager.init();
