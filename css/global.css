@@ -46,7 +46,7 @@ body.dark-mode {
 }
 
 /* Mobile */
-@media (max-width: 375px) {
+@media (max-width: 400px) {
   body {
     max-width: 20.438rem;
     padding: 1.938rem 1.5rem 4.938rem 1.5rem;

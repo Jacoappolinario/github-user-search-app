@@ -203,7 +203,7 @@
 }
 
 /* Mobile */
-@media (max-width: 375px) {
+@media (max-width: 400px) {
   .profile-card {
     padding: 2rem 1.5rem 3rem 1.5rem;
   }
